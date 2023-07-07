@@ -1,0 +1,169 @@
+:root {
+    --font: 'Neue Montreal', sans-serif;
+    --primary-color: #2B441D;
+    --secondary-color: #BB9B74;
+    --bg-dark-green: #0D1C12;
+    --black: #000000;
+    --transition: 0.3s all ease;
+
+}
+body{
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--black);
+    line-height: 1.5;
+}
+.button-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+.button-secondary {
+    background-color: #D2B486;
+    color: #212121;
+}
+
+button {
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 1rem;
+    color: unset;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.fw-600 {
+    font-weight: 600;
+}
+.btn-lng {
+    padding: 16px 40px
+}
+.fw-700 {
+    font-weight: 700;
+}
+.a-btn{
+    font-weight: 600;
+    transition: var(--transition);
+
+}
+.br-8 {
+    border-radius: 8px;
+}
+
+.br-32 {
+    border-radius: 32px;
+}
+.br-24 {
+    border-radius: 24px;
+}
+
+.br-50 {
+    border-radius: 50%;
+}
+
+
+//flex-box
+
+.flx {
+    display: flex;
+}
+.jc-c{
+    justify-content: center;
+}
+.jc-fs {
+    justify-content: flex-start;
+}
+.jc-fe {
+    justify-content: flex-end;
+}
+.ai-c {
+    align-items: center;
+}
+.ai-fs {
+    align-items: flex-start;
+}
+.ai-fe {
+    align-items: flex-end;
+}
+.gap-4 {
+    gap: 4px;
+}
+.gap-8 {
+    gap: 8px;
+}
+.gap-16 {
+    gap: 16px;
+}
+.gap-24 {
+    gap: 24px;
+}
+.gap-32 {
+    gap: 32px;
+}
+.gap-40 {
+    gap: 40px;
+}
+
+
+//grid
+.grid {
+    display: grid;
+}
+.grid-col-2 {
+    grid-template-columns: 1fr 1fr;
+}
+.grid-col-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.centered{
+    display: grid;
+    place-items: center;
+}
+
+.txt-a-r{
+    text-align: right;
+}
+.txt-a-l{
+    text-align: left;
+}
+.txt-a-c{
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+li {
+}
+a {
+    text-decoration: none;
+    color: var(--black);
+    transition: var(--transition);
+
+}
+
+//margin
+
+.mt-32 {
+    margin-top: 32px;
+}
+.mt-40 {
+    margin-top: 40px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.mt-60 {
+    margin-top: 60px;
+}
+.mt-80 {
+    margin-top: 80px;
+}
