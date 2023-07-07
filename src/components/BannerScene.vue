@@ -87,7 +87,6 @@ export default {
                     animate(); // Start the animation loop after loading the model
                 });
             }
-        this.init()
     }
 }
 </script>
