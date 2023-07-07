@@ -33,6 +33,6 @@ button {
   }
 }
 .button-secondary{
-  padding: 16px 18px 16px 30px;
+  padding: 14px 18px 14px 30px;
 }
 </style>

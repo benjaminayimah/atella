@@ -8,12 +8,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export default {
     name: 'BannerScene',
-    methods: {
-        init() {
-               
-  
-        }
-    },
     mounted() {
                 let scene, camera, renderer, controls;
                 const ts = this

@@ -37,6 +37,9 @@ button {
     color: unset;
     cursor: pointer;
     transition: var(--transition);
+    &:active {
+        transform: scale(0.98);
+    }
 }
 .fw-600 {
     font-weight: 600;
@@ -50,7 +53,9 @@ button {
 .a-btn{
     font-weight: 600;
     transition: var(--transition);
-
+    &:active {
+        transform: scale(0.98);
+    }
 }
 .br-8 {
     border-radius: 8px;
