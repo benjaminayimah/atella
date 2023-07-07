@@ -73,7 +73,7 @@ export default {
             function loadModel() {
                 const loader = new GLTFLoader();
         
-                loader.load('/models/scene.gltf', function (gltf) {
+                loader.load('/scene.gltf', function (gltf) {
                     const model = gltf.scene
                     model.rotation.y = 150/180*Math.PI; // Rotate 150 degrees on the Y-axis
 
