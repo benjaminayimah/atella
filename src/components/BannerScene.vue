@@ -95,7 +95,7 @@ export default {
 <style lang="scss" scoped>
 #banner {
     height: 60dvh;
-    background-color: #F5F3F1;
+    // background-color: #F5F3F1;
     cursor: grab;
 
 }
