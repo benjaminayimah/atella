@@ -47,12 +47,7 @@ export default {
                 light3.intensity = 1.5; // Increase the light intensity
                 scene.add(light3);
 
-                
-
-
-
-               
-
+            
 
                 window.addEventListener('resize', onWindowResize);
         
