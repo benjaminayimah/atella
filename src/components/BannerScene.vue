@@ -1,5 +1,15 @@
 <template>
-    <section id="banner" ref="banner"></section>
+    <section id="banner" ref="banner" class="relative">
+        <router-link to="/" class="a-btn button-primary br-32 btn-lng absolute">Back</router-link>
+        <button class="button-secondary br-32 gap-8">
+            Real cost of buying an Atella
+            <span class="centered br-24">
+                <svg xmlns="http://www.w3.org/2000/svg" height="11.154" viewBox="0 0 5.635 11.154">
+                    <path id="Vector" d="M1.26,12.077a.577.577,0,0,1-.408-.985L4.968,6.976a.674.674,0,0,0,0-.952L.852,1.908a.577.577,0,0,1,.816-.816L5.784,5.208a1.829,1.829,0,0,1,0,2.584L1.668,11.908A.575.575,0,0,1,1.26,12.077Z" transform="translate(-0.683 -0.923)"></path>
+                </svg>
+            </span>
+        </button>
+    </section>
 </template>
 
 <script>
@@ -26,8 +36,8 @@ export default {
                 this.$refs.banner.appendChild(renderer.domElement)
                 
                 camera.position.x = 2;
-                camera.position.y = 4;
-                camera.position.z = 15;
+                camera.position.y = 3;
+                camera.position.z = 20;
         
                 controls = new OrbitControls(camera, renderer.domElement);
                 const directionalLight = new THREE.DirectionalLight(0x999999, 1);
@@ -73,7 +83,7 @@ export default {
             function loadModel() {
                 const loader = new GLTFLoader();
         
-                loader.load('/scene.gltf', function (gltf) {
+                loader.load('scene.gltf', function (gltf) {
                     const model = gltf.scene
                     model.rotation.y = 150/180*Math.PI; // Rotate 150 degrees on the Y-axis
 
@@ -93,13 +103,32 @@ export default {
 
 <style lang="scss" scoped>
 #banner {
-    height: 60dvh;
-    // background-color: #F5F3F1;
+    height: 50dvh;
+    background-color: #F5F3F1;
     cursor: grab;
+    position: sticky;
+    top: 0;
 
 }
 canvas {
     height: 100%;
     width: 100%;
+}
+.button-primary{
+    inset: 50px auto auto 80px;
+    background-color: #fff;
+    color: #000;
+}
+.button-secondary{
+    padding: 14px 18px 14px 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    span{
+        background-color: #fff;
+        padding: 8px 24px;
+    }
+    
 }
 </style>

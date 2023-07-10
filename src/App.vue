@@ -1,15 +1,10 @@
 <template>
-  <page-header />
-  <router-view/>
-  <page-footer />
+  <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+          <component :is="Component" />
+      </transition>
+  </router-view>
 </template>
-<script>
-import PageFooter from './components/Footer.vue'
-import PageHeader from './components/Header.vue'
-export default {
-  components: { PageHeader, PageFooter },
-}
-</script>
 
 <style lang="scss">
 *,
