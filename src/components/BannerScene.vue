@@ -1,7 +1,7 @@
 <template>
     <section id="banner" ref="banner" class="relative">
-        <router-link to="/" class="a-btn button-primary br-32 btn-lng absolute">Back</router-link>
-        <button class="button-secondary br-32 gap-8">
+        <a href="https://affinityws.com/atelleweb" class="a-btn button-primary br-32 btn-lng absolute">Back</a>
+        <button @click="$store.commit('openCostModal')" class="button-secondary br-32 gap-8">
             Real cost of buying an Atella
             <span class="centered br-24">
                 <svg xmlns="http://www.w3.org/2000/svg" height="11.154" viewBox="0 0 5.635 11.154">
@@ -108,6 +108,7 @@ export default {
     cursor: grab;
     position: sticky;
     top: 0;
+    z-index: 10;
 
 }
 canvas {

@@ -296,6 +296,34 @@ h1, h2, h3, h4 {
     margin-bottom: 60px;
 }
 
+.modal-container{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    z-index: 400;
+    .table-head{
+        border-bottom: 1px #2B441D solid;
+        padding-bottom: 8px;
+    }
+}
+.modal-top{
+    border-bottom: 1px #2B441D solid;
+    padding-bottom: 16px;
+    button {
+        height: 40px;
+        width: 40px;
+        padding: unset;
+        background-color: transparent;
+        margin-right: -8px;
+        &:hover {
+            path{
+                fill: var(--black);
+            }
+        }
+    }
+}
+
+
 
 .slide-enter-active, .slide-leave-active {
     transition: all 0.3s ease-in;
@@ -308,4 +336,13 @@ h1, h2, h3, h4 {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+.zoom-enter-from,
+.zoom-leave-to {
+    transform: scale(0);
 }

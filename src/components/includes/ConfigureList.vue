@@ -1,5 +1,10 @@
 <template>
-    <div class="house-list br-16 flx-grow-1 bg-white">
+    <div @click="$emit('do-selection', item.id)" class="house-list br-16 flx-grow-1 bg-white relative" :class="{ 'selected' : computeSelected }">
+        <span v-if="computeSelected" class="centered check-btn absolute br-24">
+            <svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 0 18.788 14.586">
+                <path id="Path_264" data-name="Path 264" d="M3710.728,693.174a1.2,1.2,0,0,1-.838-.341l-6.174-6.019a1.2,1.2,0,0,1,1.675-1.718l5.248,5.116,9.383-11.194a1.2,1.2,0,0,1,1.839,1.542l-10.214,12.186a1.2,1.2,0,0,1-.859.428Z" transform="translate(-3703.354 -678.589)" fill="#ffffff"/>
+            </svg>
+        </span>
         <div :data-type="!cover ? 'no-cover' : ''" class="bg-img br-16 mb-16" :style="{ backgroundImage: 'url('+item.image+')'}"></div>
         <div>
             <h4>{{ item.name }}</h4>
@@ -12,7 +17,16 @@
 <script>
 export default {
     name: 'ConfigureList',
-    props: ['item', 'cover']
+    props: ['item', 'cover', 'selections'],
+    computed: {
+        computeSelected() {
+            const i = this.selections.find(id => id === this.item.id)
+            if(i)
+            return true
+            else
+            return false
+        },
+    }
 }
 </script>
 
@@ -39,5 +53,14 @@ export default {
 }
 .bg-img:not([data-type=no-cover]) {
     background-size: cover;
+}
+.check-btn {
+    background-color: var(--primary-color);
+    height: 28px;
+    width: 28px;
+    inset: 8px 8px auto auto;
+}
+.selected{
+    border-color: var(--primary-color);
 }
 </style>

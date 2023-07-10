@@ -2,11 +2,11 @@
     <div id="configure">
         <banner-scene />
         <section id="config_section" class="flx">
-            <div id="configure_left" class="flx column gap-32 overflow-y-scroll">
-                <ul class="flx gap-4 mt-24">
-                    <li><a class="centered active" href="">1</a></li>
-                    <li><a class="centered" href="">2</a></li>
-                    <li><a class="centered" href="">3</a></li>
+            <div id="configure_left" class="flx column gap-24 overflow-y-scroll">
+                <ul class="flx gap-4">
+                    <li><a class="centered active" href="#">1</a></li>
+                    <li><a class="centered" href="#">2</a></li>
+                    <li><a class="centered" href="#">3</a></li>
                 </ul>
                 <div class="title">
                     <div class="fs-3rem">Configure your atella</div>
@@ -31,37 +31,37 @@
                     <div>
                         <div class="fs-103rem mb-16">Select your Atella type</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in types" :key="item.id" :item="item" />
+                            <configure-list v-for="item in types" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
                         </div>
                     </div>
                     <div>
                         <div class="fs-103rem mb-16">Choose your base color</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in colors" :key="item.id" :item="item" />
+                            <configure-list v-for="item in colors" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
                         </div>
                     </div>
                     <div>
                         <div class="fs-103rem mb-16">Appliance package</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in appliances" :key="item.id" :item="item" />
+                            <configure-list v-for="item in appliances" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection"/>
                         </div>
                     </div>
                     <div>
                         <div class="fs-103rem mb-16">Choose your exterior deck</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in exterior_decks" :key="item.id" :item="item" />
+                            <configure-list v-for="item in exterior_decks" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
                         </div>
                     </div>
                     <div>
                         <div class="fs-103rem mb-16">Choose your sewage option</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in sewages" :key="item.id" :item="item" />
+                            <configure-list v-for="item in sewages" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
                         </div>
                     </div>
                     <div>
                         <div class="fs-103rem mb-16">Choose your blinds</div>
                         <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in blinds" :key="item.id" :item="item" :cover="true" />
+                            <configure-list v-for="item in blinds" :key="item.id" :item="item" :cover="true" :selections="selections" @do-selection="doSelection"/>
                         </div>
                     </div>
                     <div class="grand-total br-16 mt-32 flx column gap-24 bg-white">
@@ -105,14 +105,16 @@
             </div>
         </section>
     </div>
+    <cost-modal />
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import BannerScene from '@/components/BannerScene.vue'
 import ConfigureList from '@/components/includes/ConfigureList.vue';
+import CostModal from '@/components/modals/CostModal.vue';
 export default {
-    components: { BannerScene, ConfigureList },
+    components: { BannerScene, ConfigureList, CostModal },
     name: 'ConfigureView',
     computed: {
         ...mapState({
@@ -127,8 +129,19 @@ export default {
     data() {
         return {
             configuration: '',
-            cost: 10000
+            cost: 10000,
+            selections: []
         }
+    },
+    methods: {
+        doSelection(id) {
+            const i = this.selections.find(data => data === id)
+            if (i) {
+                this.selections = this.selections.filter(x => x !== i)
+            } else {
+                this.selections.push(id)
+            }
+        },
     }
 }
 </script>
@@ -142,7 +155,7 @@ export default {
     flex-basis: 40%;
     padding-right: 40px;
     position: sticky;
-    padding: 0 40px 60px 0;
+    padding: 32px 40px 32px 0;
 }
 #configure_right{
     border-left: 1px solid #D9D9D9;
@@ -176,6 +189,7 @@ ul {
         width: 50px;
         background: rgba(198, 189, 179, 0.19);
         border-radius: 25px;
+        cursor: default;
     }
     .active {
         color: #000;
@@ -197,5 +211,20 @@ ul {
         background: rgba(198, 189, 179, 0.19);
         text-align: center;
     }
+}
+@media screen and (max-width: 1080px){
+    #config_section{
+        flex-direction: column;
+        padding: 0 20px;
+        height: unset;
+    }
+    #configure{
+        height: unset;
+    }
+    #configure_right{
+        border-left: unset;
+        padding: 40px 0
+    }
+    
 }
 </style>
