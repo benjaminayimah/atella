@@ -1,107 +1,21 @@
 <template>
     <div id="configure">
-        <banner-scene />
+        <banner-scene :rotation="rotation" />
         <section id="config_section" class="flx">
             <div id="configure_left" class="flx column gap-24 overflow-y-scroll">
                 <ul class="flx gap-4">
-                    <li><a class="centered active" href="#">1</a></li>
-                    <li><a class="centered" href="#">2</a></li>
-                    <li><a class="centered" href="#">3</a></li>
+                    <li><router-link :to="{ name: 'ConfigureHome' }" class="centered active">1</router-link></li>
+                    <li><router-link :to="{ name: 'ConfigureAddress' }" class="centered">2</router-link></li>
+                    <li><router-link :to="{ name: 'ConfigurePayment' }"  class="centered">3</router-link></li>
                 </ul>
                 <div class="title">
                     <div class="fs-3rem">Configure your atella</div>
                     <span>Design the perfect atella for your backyard</span>
                 </div>
-                <div class="total-card br-16 flx jc-sb gap-24">
-                    <div class="flx column">
-                        <div class="flx gap-8">
-                            <div class="fs-105rem">$192,000</div>
-                            <span class="gray">or</span>
-                            <div class="gray-2">$1,290/Mon</div>
-                        </div>
-                        <div class="gray">Estimated cost</div>
-                    </div>
-                    <div class="centered">
-                        <button class="button-primary br-32 confirm-btn">Confirm availability</button>
-                    </div>
-                </div>
+                <total-card />
             </div>
             <div id="configure_right" class="flx-grow-1 overflow-y-scroll">
-                <div class="flx column gap-40">
-                    <div>
-                        <div class="fs-103rem mb-16">Select your Atella type</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in types" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fs-103rem mb-16">Choose your base color</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in colors" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fs-103rem mb-16">Appliance package</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in appliances" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection"/>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fs-103rem mb-16">Choose your exterior deck</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in exterior_decks" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fs-103rem mb-16">Choose your sewage option</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in sewages" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fs-103rem mb-16">Choose your blinds</div>
-                        <div class="flx flx-wrap gap-24">
-                            <configure-list v-for="item in blinds" :key="item.id" :item="item" :cover="true" :selections="selections" @do-selection="doSelection"/>
-                        </div>
-                    </div>
-                    <div class="grand-total br-16 mt-32 flx column gap-24 bg-white">
-                        <div class="total-card br-16 flx jc-sb gap-24">
-                            <div class="flx column">
-                                <div class="flx gap-8">
-                                    <div class="fs-105rem">$192,000</div>
-                                    <span class="gray">or</span>
-                                    <div class="gray-2">$1,290/Mon</div>
-                                </div>
-                                <div class="gray">Estimated cost</div>
-                            </div>
-                            <div class="centered">
-                                <button class="button-primary br-32 confirm-btn">Confirm availability</button>
-                            </div>
-                        </div>
-                        <div>Price breakdown</div>
-                        <div class="flx gap-40 ai-c">
-                            <div class="flx-grow-1 br-16 centered card">
-                                <div>
-                                    <div class="fs-105rem">$23,000</div>
-                                    <span class="gray">Current configuration</span>
-                                </div>
-                            </div>
-                            +
-                            <div class="flx-grow-1 br-16 centered card">
-                                <div>
-                                    <div class="fs-105rem">$10,000</div>
-                                    <span class="gray">Base installation cost</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flx-grow-1 br-16 centered card">
-                            <div>
-                                <div class="fs-105rem">Free to reserve</div>
-                                <span class="gray">Feel free to change your mind. Reservations can be changed at any time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <router-view></router-view>
             </div>
         </section>
     </div>
@@ -111,37 +25,15 @@
 <script>
 import { mapState } from 'vuex';
 import BannerScene from '@/components/BannerScene.vue'
-import ConfigureList from '@/components/includes/ConfigureList.vue';
 import CostModal from '@/components/modals/CostModal.vue';
+import TotalCard from '@/components/TotalCard.vue';
 export default {
-    components: { BannerScene, ConfigureList, CostModal },
+    components: { BannerScene, CostModal, TotalCard },
     name: 'ConfigureView',
     computed: {
         ...mapState({
-            types: (state) => state.types,
-            colors: (state) => state.colors,
-            appliances: (state) => state.appliances,
-            exterior_decks: (state) => state.exterior_decks,
-            sewages: (state) => state.sewages,
-            blinds: (state) => state.blinds
+            rotation: (state) => state.rotation
         })
-    },
-    data() {
-        return {
-            configuration: '',
-            cost: 10000,
-            selections: []
-        }
-    },
-    methods: {
-        doSelection(id) {
-            const i = this.selections.find(data => data === id)
-            if (i) {
-                this.selections = this.selections.filter(x => x !== i)
-            } else {
-                this.selections.push(id)
-            }
-        },
     }
 }
 </script>
@@ -156,6 +48,7 @@ export default {
     padding-right: 40px;
     position: sticky;
     padding: 32px 40px 32px 0;
+    container-type: inline-size;
 }
 #configure_right{
     border-left: 1px solid #D9D9D9;
@@ -172,16 +65,6 @@ export default {
         line-height: 1.2;
     }
 }
-.total-card, .grand-total{
-    padding: 24px;
-    border: 1px solid #F0F0F0
-}
-.confirm-btn{
-    padding: 8px 14px;
-}
-.gray-2 {
-    color: #4c4c4c;
-}
 ul {
     a {
         color: #888;
@@ -191,7 +74,7 @@ ul {
         border-radius: 25px;
         cursor: default;
     }
-    .active {
+    .router-link-exact-active {
         color: #000;
         background: #C6BDB3;
     }
@@ -205,14 +88,12 @@ ul {
         border-bottom: 1px solid #D9D9D9;
     }
 }
-.grand-total {
-    .card {
-        padding: 24px;
-        background: rgba(198, 189, 179, 0.19);
-        text-align: center;
+@container(inline-size <= 500px) {
+    .title{
+        width: unset;
     }
 }
-@media screen and (max-width: 1080px){
+@media screen and (max-width: 900px){
     #config_section{
         flex-direction: column;
         padding: 0 20px;

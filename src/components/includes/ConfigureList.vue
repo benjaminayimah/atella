@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('do-selection', item.id)" class="house-list br-16 flx-grow-1 bg-white relative" :class="{ 'selected' : computeSelected }">
+    <div @click="$emit('do-selection', item)" class="house-list br-16 flx-grow-1 bg-white relative scale-in" :class="{ 'selected' : computeSelected }">
         <span v-if="computeSelected" class="centered check-btn absolute br-24">
             <svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 0 18.788 14.586">
                 <path id="Path_264" data-name="Path 264" d="M3710.728,693.174a1.2,1.2,0,0,1-.838-.341l-6.174-6.019a1.2,1.2,0,0,1,1.675-1.718l5.248,5.116,9.383-11.194a1.2,1.2,0,0,1,1.839,1.542l-10.214,12.186a1.2,1.2,0,0,1-.859.428Z" transform="translate(-3703.354 -678.589)" fill="#ffffff"/>
@@ -8,16 +8,18 @@
         <div :data-type="!cover ? 'no-cover' : ''" class="bg-img br-16 mb-16" :style="{ backgroundImage: 'url('+item.image+')'}"></div>
         <div>
             <h4>{{ item.name }}</h4>
-            <div v-if="item.sub_title " class="mb-8 fs-09">{{ item.sub_title }}</div>
-            <span v-if="item.price" class="list-pill br-32">{{ item.price }}</span>
+            <div v-if="item.sub_title" class="mb-8 fs-09">{{ item.sub_title }}</div>
+            <span v-if="item.price" class="list-pill br-32">${{ computePrice(item.price) }}</span>
         </div>
     </div>
 </template>
 
 <script>
+import priceMixin from '@/mixins/priceMixin'
 export default {
     name: 'ConfigureList',
     props: ['item', 'cover', 'selections'],
+    mixins: [priceMixin],
     computed: {
         computeSelected() {
             const i = this.selections.find(id => id === this.item.id)
@@ -34,7 +36,8 @@ export default {
 .house-list{
     padding: 8px;
     border: 1px solid #F0F0F0;
-    transition: 100ms border;
+    transition: 100ms all;
+    cursor: pointer;
     &:hover {
         border-color: #000;
     }

@@ -25,5 +25,7 @@ export default {
     width: 100%;
     height: 100%;
     z-index: v-bind(computedIndex);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 </style>

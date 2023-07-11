@@ -1,6 +1,6 @@
 <template>
     <section id="banner" ref="banner" class="relative">
-        <a href="https://affinityws.com/atelleweb" class="a-btn button-primary br-32 btn-lng absolute">Back</a>
+        <a href="https://affinityws.com/atelleweb" class="a-btn button-primary br-32 btn-lng scale-in absolute">Back</a>
         <button @click="$store.commit('openCostModal')" class="button-secondary br-32 gap-8">
             Real cost of buying an Atella
             <span class="centered br-24">
@@ -18,6 +18,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export default {
     name: 'BannerScene',
+    props: ['rotation'],
+    // watch: {
+    //     rotation(newRotation) {
+    //         const model = scene.getObjectByName('model');
+    //         if (model) {
+    //             model.rotation.y = newRotation / 180 * Math.PI; // Rotate based on the new rotation prop
+    //         }
+    //     }
+    // },
     mounted() {
                 let scene, camera, renderer, controls;
                 const ts = this
@@ -85,7 +94,7 @@ export default {
         
                 loader.load('scene.gltf', function (gltf) {
                     const model = gltf.scene
-                    model.rotation.y = 150/180*Math.PI; // Rotate 150 degrees on the Y-axis
+                    model.rotation.y = ts.rotation/180*Math.PI; // Rotate 150 degrees on the Y-axis
 
                     scene.add(model);
 
@@ -126,6 +135,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
+    color: #000;
     span{
         background-color: #fff;
         padding: 8px 24px;

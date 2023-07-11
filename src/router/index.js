@@ -2,12 +2,20 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 // import AboutView from '../views/AboutView.vue'
 import ConfigureView from '../views/ConfigureView.vue'
+import ConfigureHome from '@/components/ConfigureHome.vue'
+import ConfigureAddress from '@/components/ConfigureAddress.vue'
+import ConfigurePayment from '@/components/ConfigurePayment.vue'
+
 
 
 const routes = [
-  // { path: '/', name: 'home', component: HomeView },
-  // { path: '/about', name: 'about', component: AboutView },
-  { path: '/', name: 'ConfigureView', component: ConfigureView },
+  { path: '/', component: ConfigureView,
+  children: [
+    { path: '/', name: 'ConfigureHome', component: ConfigureHome },
+    { path: '/address', name: 'ConfigureAddress', component: ConfigureAddress },
+    { path: '/payment', name: 'ConfigurePayment', component: ConfigurePayment },
+  ]
+},
 
 ]
 
