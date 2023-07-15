@@ -1,5 +1,5 @@
 :root {
-    --font: 'Neue Montreal', sans-serif;
+    --font: 'Neue Montreal', Helvetica, sans-serif;
     --primary-color: #2B441D;
     --secondary-color: #BB9B74;
     --bg-dark-green: #0D1C12;
@@ -328,7 +328,7 @@ h1, h2, h3, h4 {
     border: 1px solid #F0F0F0
 }
 .confirm-btn{
-    padding: 8px 14px;
+    padding: 12px 16px;
 }
 .gray-2 {
     color: #4c4c4c;

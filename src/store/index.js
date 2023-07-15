@@ -4,8 +4,9 @@ export default createStore({
   state: {
     rotation: 150,
     total: {
-      
+
     },
+    configTab: { page: '', title: '', sub_title: ''},
     types: [
       {id: 1, name: 'Atella studio', sub_title: '455 Gross sq. fe.', price: 192500, image: require('@/assets/images/houses/atella_type.png'), rotation: 150 },
       {id: 2, name: 'Atella one', sub_title: '455 Gross sq. fe.', price: 192500, image: require('@/assets/images/houses/atella_type.png'), rotation: 100}
@@ -42,6 +43,11 @@ export default createStore({
     },
     setRotation(state, payload) {
       state.rotation = payload
+    },
+    setConfigTab(state, payload) {
+      state.configTab.page = payload.page
+      state.configTab.title = payload.title
+      state.configTab.sub_title = payload.sub_title
     }
   },
   actions: {

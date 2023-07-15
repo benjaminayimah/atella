@@ -101,6 +101,13 @@ export default {
                 this.$store.commit('setRotation', item.rotation)
             }
         },
+        setPage() {
+            const data = { page: 1, title: 'Configure your atella', sub_title: 'Design the perfect atella for your backyard.'}
+            this.$store.commit('setConfigTab', data)
+        }
+    },
+    mounted() {
+        this.setPage()
     }
 }
 </script>

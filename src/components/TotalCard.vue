@@ -10,7 +10,7 @@
                 <div class="gray">Estimated cost</div>
             </div>
             <div class="centered">
-                <button class="button-primary br-32 confirm-btn">Confirm availability</button>
+                <button class="button-primary br-32 scale-in confirm-btn">Confirm availability</button>
             </div>
         </div>
     </div>

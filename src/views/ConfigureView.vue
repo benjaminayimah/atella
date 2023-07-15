@@ -9,10 +9,10 @@
                     <li><router-link :to="{ name: 'ConfigurePayment' }"  class="centered">3</router-link></li>
                 </ul>
                 <div class="title">
-                    <div class="fs-3rem">Configure your atella</div>
-                    <span>Design the perfect atella for your backyard</span>
+                    <div class="fs-3rem">{{ configTab.title }}</div>
+                    <span>{{ configTab.sub_title }}</span>
                 </div>
-                <total-card />
+                <total-card v-if="configTab.page === 1" />
             </div>
             <div id="configure_right" class="flx-grow-1 overflow-y-scroll">
                 <router-view></router-view>
@@ -32,7 +32,8 @@ export default {
     name: 'ConfigureView',
     computed: {
         ...mapState({
-            rotation: (state) => state.rotation
+            rotation: (state) => state.rotation,
+            configTab: (state) => state.configTab
         })
     }
 }
