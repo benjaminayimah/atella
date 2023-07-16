@@ -5,7 +5,7 @@
     --bg-dark-green: #0D1C12;
     --black: #000000;
     --transition: 0.3s all ease;
-    --gray: #666666;
+    --gray: #868686;
 
 }
 body{
@@ -54,6 +54,11 @@ button {
 .scale-in {
     &:active {
         transform: scale(0.98);
+    }
+}
+.scale-in-2 {
+    &:active {
+        transform: scale(0.993);
     }
 }
 .bg-img{

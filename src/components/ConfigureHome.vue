@@ -3,37 +3,37 @@
         <div>
             <div class="fs-103rem mb-16">Select your Atella type</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in types" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
+                <configure-list v-for="item in types" :key="item.id" :item="item" :name="'type'" />
             </div>
         </div>
         <div>
             <div class="fs-103rem mb-16">Choose your base color</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in colors" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
+                <configure-list v-for="item in colors" :key="item.id" :item="item" :name="'color'" />
             </div>
         </div>
         <div>
             <div class="fs-103rem mb-16">Appliance package</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in appliances" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection"/>
+                <configure-list v-for="item in appliances" :key="item.id" :item="item" :name="'appliance'" />
             </div>
         </div>
         <div>
             <div class="fs-103rem mb-16">Choose your exterior deck</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in exterior_decks" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
+                <configure-list v-for="item in exterior_decks" :key="item.id" :item="item" :name="'exterior'" />
             </div>
         </div>
         <div>
             <div class="fs-103rem mb-16">Choose your sewage option</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in sewages" :key="item.id" :item="item" :selections="selections" @do-selection="doSelection" />
+                <configure-list v-for="item in sewages" :key="item.id" :item="item" :name="'sewage'" />
             </div>
         </div>
         <div>
             <div class="fs-103rem mb-16">Choose your blinds</div>
             <div class="flx flx-wrap gap-24">
-                <configure-list v-for="item in blinds" :key="item.id" :item="item" :cover="true" :selections="selections" @do-selection="doSelection"/>
+                <configure-list v-for="item in blinds" :key="item.id" :item="item" :cover="true" :name="'blind'" />
             </div>
         </div>
         <div class="grand-total br-16 mt-32 flx column gap-24 bg-white">
@@ -56,8 +56,8 @@
             </div>
             <div class="flx-grow-1 br-16 centered card">
                 <div>
-                    <div class="fs-105rem">Free to reserve</div>
-                    <span class="gray">Feel free to change your mind. Reservations can be changed at any time</span>
+                    <div class="fs-105rem">$1000 deposit</div>
+                    <span class="gray">Feel free to change your mind. Reservations are fully refundable</span>
                 </div>
             </div>
         </div>

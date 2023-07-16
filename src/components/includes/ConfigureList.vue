@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('do-selection', item)" class="house-list br-16 flx-grow-1 bg-white relative scale-in" :class="{ 'selected' : computeSelected }">
+    <div @click="$store.commit('setSelected', { name: name, item: item})" class="house-list br-16 flx-grow-1 bg-white relative scale-in-2" :class="{ 'selected' : computeSelected }">
         <span v-if="computeSelected" class="centered check-btn absolute br-24">
             <svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 0 18.788 14.586">
                 <path id="Path_264" data-name="Path 264" d="M3710.728,693.174a1.2,1.2,0,0,1-.838-.341l-6.174-6.019a1.2,1.2,0,0,1,1.675-1.718l5.248,5.116,9.383-11.194a1.2,1.2,0,0,1,1.839,1.542l-10.214,12.186a1.2,1.2,0,0,1-.859.428Z" transform="translate(-3703.354 -678.589)" fill="#ffffff"/>
@@ -15,19 +15,34 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import priceMixin from '@/mixins/priceMixin'
 export default {
     name: 'ConfigureList',
-    props: ['item', 'cover', 'selections'],
+    props: ['item', 'cover', 'name'],
     mixins: [priceMixin],
     computed: {
+        ...mapState({
+            configuration: (state) => state.configuration
+        }),
         computeSelected() {
-            const i = this.selections.find(id => id === this.item.id)
-            if(i)
+            let newItem = this.configuration.type
+            if(this.name === 'color')
+                newItem = this.configuration.color
+            else if(this.name === 'appliance')
+                newItem = this.configuration.appliance
+            else if(this.name === 'exterior')
+                newItem = this.configuration.exterior
+            else if(this.name === 'sewage')
+                newItem = this.configuration.sewage
+            else if (this.name === 'blind') {
+                newItem = this.configuration.blind
+            }
+            if(this.item.id === newItem.id)
             return true
             else
             return false
-        },
+        }
     }
 }
 </script>

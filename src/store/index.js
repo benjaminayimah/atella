@@ -3,9 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     rotation: 150,
-    total: {
-
-    },
+    configuration: { 
+        type: {}, color: {}, appliance: {}, exterior: {}, sewage: {}, blind: {}
+      },
     configTab: { page: '', title: '', sub_title: ''},
     types: [
       {id: 1, name: 'Atella studio', sub_title: '455 Gross sq. fe.', price: 192500, image: require('@/assets/images/houses/atella_type.png'), rotation: 150 },
@@ -35,6 +35,51 @@ export default createStore({
     cost_modal: false
   },
   mutations: {
+    setSelected(state, payload) {
+      if(payload.name === 'type') {
+        const i = state.configuration.type
+        if(i.id === payload.item.id) {
+          state.configuration.type = ''
+        }else {
+          state.configuration.type = payload.item
+        }
+      }else if(payload.name === 'color') {
+        const i = state.configuration.color
+        if(i.id === payload.item.id) {
+          state.configuration.color = ''
+        }else {
+          state.configuration.color = payload.item
+        }
+      }else if(payload.name === 'appliance') {
+        const i = state.configuration.appliance
+        if(i.id === payload.item.id) {
+          state.configuration.appliance = ''
+        }else {
+          state.configuration.appliance = payload.item
+        }
+      }else if(payload.name === 'exterior') {
+        const i = state.configuration.exterior
+        if(i.id === payload.item.id) {
+          state.configuration.exterior = ''
+        }else {
+          state.configuration.exterior = payload.item
+        }
+      }else if(payload.name === 'sewage') {
+        const i = state.configuration.sewage
+        if(i.id === payload.item.id) {
+          state.configuration.sewage = ''
+        }else {
+          state.configuration.sewage = payload.item
+        }
+      }else if(payload.name === 'blind') {
+        const i = state.configuration.blind
+        if(i.id === payload.item.id) {
+          state.configuration.blind = ''
+        }else {
+          state.configuration.blind = payload.item
+        }
+      }
+    },
     openCostModal(state) {
       state.cost_modal = true
     },
