@@ -4,11 +4,18 @@ export default createStore({
   state: {
     rotation: 150,
     configuration: { 
-        type: {}, color: {}, appliance: {}, exterior: {}, sewage: {}, blind: {}
+        type: {
+          id: 1, name: 'Atella studio', sub_title: '455 Gross sq. fe.', price: 102500, image: require('@/assets/images/houses/atella_type.png'), rotation: 150 
+        },
+        color: {},
+        appliance: {},
+        exterior: {},
+        sewage: {},
+        blind: {}
       },
     configTab: { page: '', title: '', sub_title: ''},
     types: [
-      {id: 1, name: 'Atella studio', sub_title: '455 Gross sq. fe.', price: 192500, image: require('@/assets/images/houses/atella_type.png'), rotation: 150 },
+      {id: 1, name: 'Atella studio', sub_title: '455 Gross sq. fe.', price: 102500, image: require('@/assets/images/houses/atella_type.png'), rotation: 150 },
       {id: 2, name: 'Atella one', sub_title: '455 Gross sq. fe.', price: 192500, image: require('@/assets/images/houses/atella_type.png'), rotation: 100}
     ],
     colors: [
@@ -37,12 +44,7 @@ export default createStore({
   mutations: {
     setSelected(state, payload) {
       if(payload.name === 'type') {
-        const i = state.configuration.type
-        if(i.id === payload.item.id) {
-          state.configuration.type = ''
-        }else {
-          state.configuration.type = payload.item
-        }
+        state.configuration.type = payload.item
       }else if(payload.name === 'color') {
         const i = state.configuration.color
         if(i.id === payload.item.id) {
