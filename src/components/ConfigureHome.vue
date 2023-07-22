@@ -37,29 +37,9 @@
             </div>
         </div>
         <div class="grand-total br-16 mt-32 flx column gap-24 bg-white">
-            <total-card />
+            <total-card :button="true"/>
             <div>Price breakdown</div>
-            <div class="flx gap-40 ai-c">
-                <div class="flx-grow-1 br-16 centered card">
-                    <div>
-                        <div class="fs-105rem">$23,000</div>
-                        <span class="gray">Current configuration</span>
-                    </div>
-                </div>
-                +
-                <div class="flx-grow-1 br-16 centered card">
-                    <div>
-                        <div class="fs-105rem">$10,000</div>
-                        <span class="gray">Base installation cost</span>
-                    </div>
-                </div>
-            </div>
-            <div class="flx-grow-1 br-16 centered card">
-                <div>
-                    <div class="fs-105rem">$1000 deposit</div>
-                    <span class="gray">Feel free to change your mind. Reservations are fully refundable</span>
-                </div>
-            </div>
+            <grand-total-card />
         </div>
     </div>
 </template>
@@ -69,8 +49,9 @@ import TotalCard from '@/components/TotalCard.vue';
 import priceMixin from '@/mixins/priceMixin'
 import { mapState } from 'vuex';
 import ConfigureList from './includes/ConfigureList.vue'
+import GrandTotalCard from './GrandTotalCard.vue';
 export default {
-  components: { ConfigureList, TotalCard },
+  components: { ConfigureList, TotalCard, GrandTotalCard },
     name: 'ConfigureHome',
     mixins: [priceMixin],
     computed: {

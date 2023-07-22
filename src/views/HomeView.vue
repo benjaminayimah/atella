@@ -18,7 +18,7 @@
               </ul>
             </nav>
             <div class="txt-a-r">
-                  <router-link to="/configure" class="a-btn button-secondary br-32 btn-lng">Configure</router-link>
+                  <router-link to="/configure" class="a-button button-secondary br-32 btn-lng">Configure</router-link>
               </div>
           </div>
       </header>
@@ -33,7 +33,7 @@
           <div class="hero-image bg-img"></div>
           <div class="flx ai-c column hero-text gap-24">
             <div>What has your backyard done for you lately</div>
-            <router-link to="/configure" class="a-btn button-primary br-32 btn-lng">Configure</router-link>
+            <router-link to="/configure" class="a-button button-primary br-32 btn-lng">Configure</router-link>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
           Available now in ontario canada starting from $125k or $900/mon
         </div>
         <div class="mt-32">
-          <router-link to="/configure" class="button-secondary a-btn btn-lng br-32 gap-8 flx ai-c">
+          <router-link to="/configure" class="button-secondary a-button btn-lng br-32 gap-8 flx ai-c">
             Reserve Now
             <svg xmlns="http://www.w3.org/2000/svg" height="7" viewBox="0 0 43 5.774">
               <path d="M43,3.5,38,.613V6.387ZM0,4H38.5V3H0Z" transform="translate(0 -0.613)" fill="#fff"/>

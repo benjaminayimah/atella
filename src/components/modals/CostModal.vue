@@ -59,8 +59,6 @@ export default {
             cost_modal: (state) => state.cost_modal
         })
     }
-
-
 }
 </script>
 

@@ -56,7 +56,7 @@
                     </ul>
                 </div>
                 <div class="txt-a-r">
-                    <router-link to="/configure" class="a-btn button-primary br-32 btn-lng">Configure</router-link>
+                    <router-link to="/configure" class="a-button button-primary br-32 btn-lng">Configure</router-link>
                 </div>
                 
             </div>

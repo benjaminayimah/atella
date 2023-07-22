@@ -39,7 +39,8 @@ export default createStore({
       {id: 12, name: 'No blinds', price: 5000, image: require('@/assets/images/houses/blinds.png'), rotation: 50},
       {id: 13, name: 'Roller blinds', price: 192500, image: require('@/assets/images/houses/blinds.png'), rotation: 40}
     ],
-    cost_modal: false
+    cost_modal: false,
+    appointment_modal: false
   },
   mutations: {
     setSelected(state, payload) {
@@ -87,6 +88,12 @@ export default createStore({
     },
     closeCostModal(state) {
       state.cost_modal = false
+    },
+    openAppointmentModal(state) {
+      state.appointment_modal = true
+    },
+    closeAppointmentModal(state) {
+      state.appointment_modal = false
     },
     setRotation(state, payload) {
       state.rotation = payload

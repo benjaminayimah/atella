@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <section id="banner" ref="banner" class="relative">
         <a href="https://affinityws.com/atelleweb" class="a-button button-primary br-32 btn-lng scale-in absolute">Back</a>
         <button @click="$store.commit('openCostModal')" class="button-secondary br-32 gap-8">
@@ -10,7 +10,6 @@
             </span>
         </button>
     </section>
-    
 </template>
 
 <script>
@@ -29,7 +28,6 @@ export default {
     //     }
     // },
     mounted() {
-
         let scene, camera, renderer, controls;
         const ts = this
         let containerWidth = ts.$refs.banner.offsetWidth;
@@ -48,7 +46,7 @@ export default {
         
         camera.position.x = 2;
         camera.position.y = 3;
-        camera.position.z = 40;
+        camera.position.z = 20;
 
         controls = new OrbitControls(camera, renderer.domElement);
         const directionalLight = new THREE.DirectionalLight(0x999999, 1);
@@ -56,6 +54,7 @@ export default {
         directionalLight.castShadow = true; // Enable shadow casting
         directionalLight.intensity = 1.5; // Increase the light intensity
         scene.add(directionalLight);
+        
 
         let light2 = new THREE.PointLight(0xffffff, 10);
         light2.position.set(50, 10, 0);
@@ -83,7 +82,7 @@ export default {
             camera.updateProjectionMatrix();
             renderer.setSize(containerWidth, containerHeight);
         }
-
+    
         function animate() {
             requestAnimationFrame(animate);
             controls.update();
@@ -149,4 +148,4 @@ canvas {
     }
     
 }
-</style>
+</style> -->

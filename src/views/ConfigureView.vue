@@ -1,5 +1,5 @@
 <template>
-    <div id="configure">
+    <div id="configure" class="configure_view2" :class="{ 'configure_view2' : configTab.page === 2 || configTab.page === 3 }">
         <banner-scene :rotation="rotation" />
         <section id="config_section" class="flx">
             <div id="configure_left" class="flx column gap-24 overflow-y-scroll">
@@ -7,12 +7,13 @@
                     <li><router-link :to="{ name: 'ConfigureHome' }" class="centered active">1</router-link></li>
                     <li><router-link :to="{ name: 'ConfigureAddress' }" class="centered">2</router-link></li>
                     <li><router-link :to="{ name: 'ConfigurePayment' }"  class="centered">3</router-link></li>
+                    <li><router-link :to="{ name: 'ConfigureAppointment' }"  class="centered">4</router-link></li>
                 </ul>
                 <div class="title">
                     <div class="fs-3rem">{{ configTab.title }}</div>
                     <span>{{ configTab.sub_title }}</span>
                 </div>
-                <total-card v-if="configTab.page === 1" />
+                <total-card :button="true" v-if="configTab.page === 10" />
             </div>
             <div id="configure_right" class="flx-grow-1 overflow-y-scroll">
                 <router-view></router-view>
@@ -79,12 +80,12 @@ ul {
         color: #000;
         background: #C6BDB3;
     }
-    li:first-child::after, li:nth-child(2):after {
+    li:first-child::after, li:nth-child(2):after, li:nth-child(3):after {
         content: '';
         width: 55px;
-        top: -55%;
+        top: -50%;
         margin-left: 55px;
-        display: inline-block;
+        display: flex;
         position: relative;
         border-bottom: 1px solid #D9D9D9;
     }
@@ -106,6 +107,9 @@ ul {
     #configure_right{
         border-left: unset;
         padding: 40px 0
+    }
+    #configure_left {
+        padding: 32px 0
     }
     
 }

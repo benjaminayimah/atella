@@ -39,7 +39,11 @@ body{
     background-color: #BB9B74;
     color: #fff;
 }
-button {
+.button-outline {
+    background-color: #fff;
+    border: 1px solid #F0F0F0;
+}
+button, .a-button {
     border-style: none;
     display: flex;
     justify-content: center;
@@ -47,7 +51,6 @@ button {
     white-space: nowrap;
     font-family: inherit;
     font-size: 1rem;
-    color: unset;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -72,7 +75,12 @@ button {
     font-weight: 600;
 }
 .btn-lng {
-    padding: 14px 50px
+    padding: 14px 45px;
+    height: 48px;
+}
+.btn-md {
+    padding: 14px 32px;
+    height: 48px;
 }
 .fw-700 {
     font-weight: 700;
@@ -97,10 +105,6 @@ button {
 }
 .fs-3rem{
     font-size: 3rem;
-}
-.a-btn{
-    font-weight: 600;
-    transition: var(--transition);
 }
 .br-8 {
     border-radius: 8px;
@@ -147,6 +151,9 @@ button {
 }
 .flx-wrap{
     flex-wrap: wrap;
+}
+.flx-1 {
+    flex: 1;
 }
 .flx-grow-1{
     flex-grow: 1;
@@ -338,11 +345,71 @@ h1, h2, h3, h4 {
 .gray-2 {
     color: #4c4c4c;
 }
-.grand-total {
-    .card {
-        padding: 24px;
-        background: rgba(198, 189, 179, 0.19);
-        text-align: center;
+.gray-card{
+    padding: 24px;
+    background: rgba(198, 189, 179, 0.19);
+    text-align: center;
+    font-size: 0.9rem;
+}
+input {
+    appearance: none;
+    outline: 0;
+    transition: .2s all;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #F0F0F0;
+    &:hover {
+        border-color: #000000;
+    }
+    &:focus {
+        border-color: #000000;
+        box-shadow: rgba(0, 0, 0, 1) 0px 0px 0px 1px;
+    }
+}
+
+.input-wrapper {
+    input[type=search] {
+        padding: 8px 12px 8px 60px;
+    }
+    i {
+        position: absolute;
+        inset: 50% auto auto 30px;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.configure_view2{
+	display: flex;
+    overflow-y: auto;
+    #banner{
+        width: 50vw;
+        height: 100dvh;
+        canvas{
+            width: 100%;
+	    }
+        .button-secondary{
+            bottom: 20%;
+        }
+    }
+    #config_section{
+        height: 100dvh;
+        flex-direction: column;
+        width: 50vw;
+        #configure_right {
+            border-left: none;
+            padding: 32px 0;
+            overflow: visible;
+        }
+        #configure_left {
+            flex-basis: unset;
+            position: unset; 
+            padding: 32px 0;
+            overflow: visible;
+        }
     }
 }
 

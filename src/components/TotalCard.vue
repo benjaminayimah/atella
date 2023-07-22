@@ -1,5 +1,5 @@
 <template>
-    <div class="total-wrapper">
+    <div class="total-wrapper bg-white">
         <div class="total-card br-16 flx jc-sb gap-24">
             <div class="flx column">
                 <div class="flx gap-8 ai-c">
@@ -11,8 +11,8 @@
                 </div>
                 <div class="gray">Estimated cost</div>
             </div>
-            <div class="centered">
-                <button class="button-primary br-32 scale-in confirm-btn">Confirm availability</button>
+            <div v-if="button" class="centered">
+                <button @click="confirm" class="button-primary br-32 scale-in confirm-btn">Confirm availability</button>
             </div>
         </div>
     </div>
@@ -24,6 +24,7 @@ import { mapState } from 'vuex';
 export default {
     name: 'TotalCard',
     mixins: [priceMixin],
+    props: ['button'],
     computed: {
         ...mapState({
             configuration: (state) => state.configuration
@@ -36,6 +37,11 @@ export default {
                 }
             }
             return total
+        }
+    },
+    methods: {
+        confirm() {
+            this.$router.push({ name: 'ConfigureAddress'})
         }
     }
 }
